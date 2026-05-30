@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimu ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#efe0d1;
+color:#8b1e2d;
+font-family:'Cormorant Garamond',serif;
+overflow-x:hidden;
+touch-action: manipulation;
+}
+
+/* GLOBAL FIX */
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:25px;
+text-align:center;
+width:100%;
+}
+
+/* HERO */
+.hero img{
+width:280px;
+max-width:90%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:2rem;
+line-height:1.3;
+}
+
+.hero h2{
+margin-top:10px;
+font-weight:300;
+}
+
+.scroll-btn{
+margin-top:25px;
+padding:12px 28px;
+border:1px solid #8b1e2d;
+background:transparent;
+color:#8b1e2d;
+cursor:pointer;
+font-size:16px;
+}
+
+/* COUNTDOWN */
+.title{
+font-size:2rem;
+margin-bottom:25px;
+}
+
+.countdown{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.box{
+background:white;
+padding:15px;
+border-radius:12px;
+min-width:70px;
+}
+
+.box span{
+display:block;
+font-size:2rem;
+font-weight:bold;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+width:100%;
+max-width:100%;
+}
+
+.gallery img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* SONG */
+.song-card{
+background:white;
+padding:25px;
+border-radius:18px;
+max-width:90%;
+}
+
+.song-card a{
+display:inline-block;
+margin-top:15px;
+color:#8b1e2d;
+font-size:18px;
+}
+
+/* LETTER */
+.letter{
+background:white;
+padding:20px;
+border-radius:15px;
+max-width:95%;
+text-align:left;
+line-height:2;
+font-size:16px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ENVELOPE */
+.envelope{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.env{
+font-size:70px;
+cursor:pointer;
+animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+.letterBox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+padding:15px;
+}
+
+.letterPopup{
+background:white;
+padding:20px;
+border-radius:15px;
+max-width:95%;
+max-height:80vh;
+overflow:auto;
+line-height:2;
+font-size:15px;
+}
+
+/* END */
+.footer{
+font-size:2rem;
+}
+
+.small{
+margin-top:10px;
+font-size:1rem;
+}
+
+/* MOBILE FIX EXTRA */
+@media(max-width:768px){
+
+.hero h1{font-size:1.6rem;}
+.title{font-size:1.8rem;}
+
+.gallery{
+grid-template-columns:1fr 1fr;
+}
+
+.box span{
+font-size:1.7rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<img src="images/IMG_4553.JPG">
+<h1>for the girl i'd choose in every universe.</h1>
+<h2>Mimu ♡</h2>
+<button class="scroll-btn" onclick="next()">open ♡</button>
+</section>
+
+<!-- COUNTDOWN -->
+<section>
+<h1 class="title">Countdown 🎂</h1>
+
+<div class="countdown">
+<div class="box"><span id="d">0</span>Days</div>
+<div class="box"><span id="h">0</span>Hours</div>
+<div class="box"><span id="m">0</span>Minutes</div>
+<div class="box"><span id="s">0</span>Seconds</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section>
+<div class="gallery">
+<img src="images/IMG_4559.JPG">
+<img src="images/IMG_4553.JPG">
+<img src="images/IMG_4506.JPG">
+<img src="images/IMG_4539.JPG">
+<img src="images/IMG_4426.JPG">
+</div>
+</section>
+
+<!-- SONG -->
+<section>
+<div class="song-card">
+<h1>our song ♫</h1>
+<a target="_blank" href="https://youtu.be/qzEc57UBmrA?si=SDuwpukeUa00Dhdk">
+play our song ♡
+</a>
+</div>
+</section>
+
+<!-- ENVELOPE -->
+<section class="envelope">
+<div class="env" onclick="openLetter()">✉️</div>
+<p>open me</p>
+</section>
+
+<div class="letterBox" id="letterBox" onclick="closeLetter()">
+<div class="letterPopup" onclick="event.stopPropagation()">
+
+happy birthday ya ahla haga hasaletly f hayaty 🤍
+<br><br>
+thank you for existing<br><br>
+BA7EBKKKKKK YA MIMU 🤍
+
+</div>
+</div>
+
+<!-- END -->
+<section>
+<h1 class="footer">Thank you for existing.</h1>
+<p class="small">— Fufuu ♡</p>
+</section>
+
+<script>
+
+const birthday = new Date("June 21, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+let now = new Date().getTime();
+let d = birthday - now;
+
+document.getElementById("d").innerText = Math.floor(d/(1000*60*60*24));
+document.getElementById("h").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerText = Math.floor((d%(1000*60*60))/(1000*60));
+document.getElementById("s").innerText = Math.floor((d%(1000*60))/1000);
+},1000);
+
+function openLetter(){
+document.getElementById("letterBox").style.display="flex";
+}
+
+function closeLetter(){
+document.getElementById("letterBox").style.display="none";
+}
+
+function next(){
+window.scrollBy({top: window.innerHeight, behavior:"smooth"});
+}
+
+</script>
+
+</body>
+</html>
