@@ -21,185 +21,120 @@ background:#efe0d1;
 color:#8b1e2d;
 font-family:'Cormorant Garamond',serif;
 overflow-x:hidden;
-touch-action: manipulation;
 }
 
-/* GLOBAL FIX */
 section{
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-padding:25px;
+padding:40px;
 text-align:center;
-width:100%;
 }
 
-/* HERO */
 .hero img{
-width:280px;
-max-width:90%;
+width:320px;
+max-width:85%;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.15);
-margin-bottom:20px;
+margin-bottom:30px;
 }
 
 .hero h1{
-font-size:2rem;
-line-height:1.3;
+font-size:3rem;
+max-width:800px;
 }
 
 .hero h2{
-margin-top:10px;
+margin-top:20px;
 font-weight:300;
 }
 
 .scroll-btn{
-margin-top:25px;
-padding:12px 28px;
+margin-top:40px;
+padding:15px 35px;
 border:1px solid #8b1e2d;
 background:transparent;
 color:#8b1e2d;
 cursor:pointer;
-font-size:16px;
+font-size:18px;
 }
 
-/* COUNTDOWN */
 .title{
-font-size:2rem;
-margin-bottom:25px;
+font-size:3rem;
+margin-bottom:30px;
 }
 
 .countdown{
 display:flex;
-gap:10px;
+gap:20px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
 .box{
 background:white;
-padding:15px;
-border-radius:12px;
-min-width:70px;
+padding:20px;
+border-radius:15px;
+min-width:120px;
 }
 
 .box span{
 display:block;
-font-size:2rem;
+font-size:3rem;
 font-weight:bold;
 }
 
-/* GALLERY */
 .gallery{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 width:100%;
-max-width:100%;
+max-width:1200px;
 }
 
 .gallery img{
 width:100%;
-height:160px;
+height:320px;
 object-fit:cover;
-border-radius:12px;
+border-radius:15px;
+background:white;
+padding:10px;
 }
 
-/* SONG */
 .song-card{
 background:white;
-padding:25px;
-border-radius:18px;
-max-width:90%;
+padding:40px;
+border-radius:20px;
+max-width:700px;
 }
 
 .song-card a{
 display:inline-block;
-margin-top:15px;
+margin-top:20px;
 color:#8b1e2d;
-font-size:18px;
+font-size:22px;
 }
 
-/* LETTER */
 .letter{
 background:white;
-padding:20px;
-border-radius:15px;
-max-width:95%;
+padding:40px;
+border-radius:20px;
+max-width:900px;
 text-align:left;
 line-height:2;
-font-size:16px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+font-size:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-/* ENVELOPE */
-.envelope{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-}
-
-.env{
-font-size:70px;
-cursor:pointer;
-animation:float 2s infinite ease-in-out;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
-}
-
-.letterBox{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.6);
-display:none;
-justify-content:center;
-align-items:center;
-padding:15px;
-}
-
-.letterPopup{
-background:white;
-padding:20px;
-border-radius:15px;
-max-width:95%;
-max-height:80vh;
-overflow:auto;
-line-height:2;
-font-size:15px;
-}
-
-/* END */
 .footer{
-font-size:2rem;
+font-size:3rem;
 }
 
 .small{
-margin-top:10px;
-font-size:1rem;
-}
-
-/* MOBILE FIX EXTRA */
-@media(max-width:768px){
-
-.hero h1{font-size:1.6rem;}
-.title{font-size:1.8rem;}
-
-.gallery{
-grid-template-columns:1fr 1fr;
-}
-
-.box span{
-font-size:1.7rem;
-}
-
+margin-top:20px;
+font-size:1.2rem;
 }
 
 </style>
@@ -208,94 +143,233 @@ font-size:1.7rem;
 <body>
 
 <!-- HERO -->
+
 <section class="hero">
+
 <img src="images/IMG_4553.JPG">
-<h1>for the girl i'd choose in every universe.</h1>
-<h2>Mimu ♡</h2>
-<button class="scroll-btn" onclick="next()">open ♡</button>
+
+<h1>
+for the girl i'd choose in every universe.
+</h1>
+
+<h2>
+Mimu ♡
+</h2>
+
+<button class="scroll-btn"
+onclick="document.getElementById('count').scrollIntoView()">
+open ♡
+</button>
+
 </section>
 
 <!-- COUNTDOWN -->
-<section>
-<h1 class="title">Countdown 🎂</h1>
+
+<section id="count">
+
+<h1 class="title">
+Countdown to Mimu's Birthday 🎂
+</h1>
 
 <div class="countdown">
-<div class="box"><span id="d">0</span>Days</div>
-<div class="box"><span id="h">0</span>Hours</div>
-<div class="box"><span id="m">0</span>Minutes</div>
-<div class="box"><span id="s">0</span>Seconds</div>
+
+<div class="box">
+<span id="days">0</span>
+Days
 </div>
+
+<div class="box">
+<span id="hours">0</span>
+Hours
+</div>
+
+<div class="box">
+<span id="minutes">0</span>
+Minutes
+</div>
+
+<div class="box">
+<span id="seconds">0</span>
+Seconds
+</div>
+
+</div>
+
 </section>
 
-<!-- GALLERY -->
+<!-- PHOTOS -->
+
 <section>
+
+<h1 class="title">
+our memories ♡
+</h1>
+
 <div class="gallery">
-<img src="images/IMG_4559.JPG">
-<img src="images/IMG_4553.JPG">
+
 <img src="images/IMG_4506.JPG">
-<img src="images/IMG_4539.JPG">
 <img src="images/IMG_4426.JPG">
+<img src="images/IMG_4553.JPG">
+<img src="images/IMG_4539.JPG">
+<img src="images/IMG_4559.JPG">
+
 </div>
+
 </section>
 
 <!-- SONG -->
+
 <section>
+
 <div class="song-card">
-<h1>our song ♫</h1>
-<a target="_blank" href="https://youtu.be/qzEc57UBmrA?si=SDuwpukeUa00Dhdk">
+
+<h1>
+our song ♫
+</h1>
+
+<p style="margin-top:20px">
+click below to listen
+</p>
+
+<a target="_blank"
+href="https://youtu.be/qzEc57UBmrA?si=SDuwpukeUa00Dhdk">
 play our song ♡
 </a>
+
 </div>
+
 </section>
 
-<!-- ENVELOPE -->
-<section class="envelope">
-<div class="env" onclick="openLetter()">✉️</div>
-<p>open me</p>
-</section>
+<!-- LETTER -->
 
-<div class="letterBox" id="letterBox" onclick="closeLetter()">
-<div class="letterPopup" onclick="event.stopPropagation()">
+<section>
+
+<h1 class="title">
+a letter for you ♡
+</h1>
+
+<div class="letter">
+
+<p>
 
 happy birthday ya ahla haga hasaletly f hayaty 🤍
+
 <br><br>
-thank you for existing<br><br>
-BA7EBKKKKKK YA MIMU 🤍
+
+rabena yekhaleeky leya ya aghla haga fel donya de kolaha w begad ya habebty ana mahma etkalmt w oly msh hatfhamy hoby leeky ad eh bas aayzk dayman tekony aarfa enk aghla haga f hayaty w eny dayman hafdal gambk w tool 3omry hafdal maaky w da 3omro ma haytghayar.
+
+<br><br>
+
+haaml ay haga fel donya de aashan ashofk mabsota w mafesh haga esmaha el hedya too much aashan enty mafesh haga keteer aaleky ya habebt alby.
+
+<br><br>
+
+ana a3ml ay haga fel donya de aashan ashofk mabsota w farhana de aandy bel donya kolaha walahy.
+
+<br><br>
+
+w begad thank you ya mimu aala kol haga aamlteha maaya.
+
+<br><br>
+
+thank you aala enk dayman gamby.
+
+<br><br>
+
+thank you enk mehasesany en fe had beyhebny.
+
+<br><br>
+
+thank you aala kalamk el helw.
+
+<br><br>
+
+thank you aala wogoodk.
+
+<br><br>
+
+thank you for existing.
+
+<br><br>
+
+thank you enk maaya.
+
+<br><br>
+
+thank you aala kol haga enty bet3mleha ya habebty.
+
+<br><br>
+
+inshallah afdal tool 3omry gambk w ashofk dayman mabsota.
+
+<br><br>
+
+enty begad msh fahma ana mabsoot dlw ezay wana shayfek mabsota keda.
+
+<br><br>
+
+BA7EBKKKKKK YA MIMU.
+
+<br><br>
+
+ya soghantoty.
+
+<br><br>
+
+ya hayaty kolaha.
+
+<br><br>
+
+ya aghla haga fel donya de.
+
+<br><br>
+
+begad ba3sha2ekkkkkkkkk 🤍
+
+</p>
 
 </div>
-</div>
+
+</section>
 
 <!-- END -->
+
 <section>
-<h1 class="footer">Thank you for existing.</h1>
-<p class="small">— Fufuu ♡</p>
+
+<h1 class="footer">
+Thank you for existing.
+</h1>
+
+<p class="small">
+— Fufuu ♡
+</p>
+
 </section>
 
 <script>
 
-const birthday = new Date("June 21, 2026 00:00:00").getTime();
+const birthday =
+new Date("June 21, 2026 00:00:00").getTime();
 
-setInterval(()=>{
-let now = new Date().getTime();
-let d = birthday - now;
+setInterval(() => {
 
-document.getElementById("d").innerText = Math.floor(d/(1000*60*60*24));
-document.getElementById("h").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-document.getElementById("m").innerText = Math.floor((d%(1000*60*60))/(1000*60));
-document.getElementById("s").innerText = Math.floor((d%(1000*60))/1000);
+const now = new Date().getTime();
+
+const distance = birthday - now;
+
+document.getElementById("days").innerHTML =
+Math.floor(distance / (1000*60*60*24));
+
+document.getElementById("hours").innerHTML =
+Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+document.getElementById("minutes").innerHTML =
+Math.floor((distance % (1000*60*60)) / (1000*60));
+
+document.getElementById("seconds").innerHTML =
+Math.floor((distance % (1000*60)) / 1000);
+
 },1000);
-
-function openLetter(){
-document.getElementById("letterBox").style.display="flex";
-}
-
-function closeLetter(){
-document.getElementById("letterBox").style.display="none";
-}
-
-function next(){
-window.scrollBy({top: window.innerHeight, behavior:"smooth"});
-}
 
 </script>
 
